@@ -1,36 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-blue: #9BD1E5;
+  --nav-color: #D7FDEC;
+  --second-blue: #336699;
+  --third-blue: #2F4858;
+  --green-granny-smith-apple: #2F4858;
+  --star-command-blue: #3A7CA5;
+  --sky-blue: #9BD1E5;
+  --polished-pine: #439A86;
+  --space-cadet: #222E50;
+  --font-color: #222222;
+  --title-color: #343434;
+}
+
 body {
-    background: lightblue;
+    background: var(--background-blue);
     font-family: Arial;
     height: 100vh;
+    color: var(--font-color);
   }
+
+header {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  background-color: var(--nav-color);
+  position: fixed;
+  width: 100vw;
+  height: 5vh;
+  border: 1px solid lightslategray;
+  box-shadow: 0 1px 0 rgba(0, 57, 214, 0.4);
+}
+
+.menu ul {
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
   
-  .menu {
-    background-color: white;
-  }
+}
+.menu li {
+  list-style: none;
   
-  .menu ul {
-    display: flex;
-    justify-content: space-around;
-  }
-  .menu li {
-    list-style: none;
-  }
+}
+
+a{
+  text-decoration: none;
   
-  a{
-    text-decoration: none;
-    
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  .site-title, 
-  .site-subtitle {
-    text-align: center;
-    color: blue;
-  }
-  
-  .site-subtitle {
-    font-style: italic;
-  }
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  height: 30vh;
+  width: 30vh;
+  border-radius: 50%;
+  border: 3px solid rgb(79, 120, 255);
+}
+
+.site-title, 
+.site-subtitle {
+  text-align: center;
+  color: var(--title-color);
+}
+
+.site-subtitle {
+  font-style: italic;
+}
