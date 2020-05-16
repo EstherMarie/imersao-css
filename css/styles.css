@@ -16,12 +16,8 @@ html {
   --border-color: #072AC8;
   --projeto-color: #73FBD3;
   --contato-color: #5C7AFF;
-  --third-blue: #2F4858;
-  --green-granny-smith-apple: #2F4858;
-  --star-command-blue: #3A7CA5;
-  --sky-blue: #9BD1E5;
-  --polished-pine: #439A86;
-  --space-cadet: #222E50;
+  --flourescent-blue: #44E5E7;
+  --vivid-sky-blue: #59D2FE;
   --font-color: #222222;
   --title-color: #343434;
 }
@@ -126,7 +122,7 @@ header img {
 
 section h2 {
     text-align: center;
-    padding: 3rem; 
+    padding: 2em; 
       
 }
 
@@ -137,7 +133,7 @@ section h2 {
 
 .projetos .grid {
   display: grid;
-  gap: 3em; 
+  gap: 2em; 
   justify-content: center;
   
 }
@@ -151,7 +147,7 @@ section h2 {
 @media (min-width: 850px) {
   .projetos .grid {
     grid-template-columns: repeat(3, 240px);
-  }
+    }
 }
 
 .projetos figure {
@@ -161,6 +157,9 @@ section h2 {
 .img-projeto {
   width: 240px;
   height: 180px;
+  object-fit: fill;
+  object-position: center;
+  border-radius: 5px;
 }
 
 .contato {
