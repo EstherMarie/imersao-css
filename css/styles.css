@@ -1,13 +1,21 @@
+/* Soft reset*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 :root {
-  --background-blue: #9BD1E5;
-  --nav-color: #D7FDEC;
-  --second-blue: #336699;
+  --background-blue: #2196F3;
+  --nav-color: rgb(255, 255, 255);
+  --border-color: #072AC8;
+  --projeto-color: #73FBD3;
+  --contato-color: #5C7AFF;
   --third-blue: #2F4858;
   --green-granny-smith-apple: #2F4858;
   --star-command-blue: #3A7CA5;
@@ -19,23 +27,48 @@
 }
 
 body {
-    background: var(--background-blue);
     font-family: Arial;
     height: 100vh;
     color: var(--font-color);
+    font-size: 18px;
+}
+
+@media (min-width: 200px) {
+  body {
+    font-size: 12px;
   }
+}
+
+@media (min-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/* breakpoint */
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+}
+
 
 header {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background-color: var(--background-blue);
+  
 }
 
 .menu {
   background-color: var(--nav-color);
   position: fixed;
   width: 100vw;
-  height: 5vh;
+  
+  top: 0;
   border: 1px solid lightslategray;
   box-shadow: 0 1px 0 rgba(0, 57, 214, 0.4);
 }
@@ -51,28 +84,86 @@ header {
   
 }
 
+.menu a {
+  color: var(--third-blue);
+  display: block;
+  padding: 10px 20px;
+}
+
 a{
   text-decoration: none;
-  
+  color: var(--font-color);
 }
 
 a:hover {
   text-decoration: underline;
 }
 
-img {
+header img {  
   height: 30vh;
   width: 30vh;
+  margin-bottom: 20px;
   border-radius: 50%;
-  border: 3px solid rgb(79, 120, 255);
+  border: 5px solid var(--border-color);
 }
 
 .site-title, 
 .site-subtitle {
   text-align: center;
-  color: var(--title-color);
+  color: white;
+    
+}
+
+.site-title {
+  font-size: 4em;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .site-subtitle {
   font-style: italic;
+  line-height: 1.8em;
+}
+
+section h2 {
+    text-align: center;
+    padding: 3rem; 
+      
+}
+
+.projetos {
+  background-color: var(--projeto-color);
+  
+}
+
+.projetos .grid {
+  display: grid;
+  gap: 3em; 
+  justify-content: center;
+  
+}
+
+@media (min-width: 550px) {
+  .projetos .grid {
+    grid-template-columns: 240px 240px;
+  }
+}
+
+@media (min-width: 850px) {
+  .projetos .grid {
+    grid-template-columns: repeat(3, 240px);
+  }
+}
+
+.projetos figure {
+  text-align: center;
+}
+
+.img-projeto {
+  width: 240px;
+  height: 180px;
+}
+
+.contato {
+  background-color: var(--contato-color);
+  height: 50vh;
 }
