@@ -57,7 +57,7 @@ header {
   align-items: center;
   
   background-image: url("../img/Nebula.png");
-  background-blend-mode: saturation;
+  filter: opacity(0.9);
 }
 
 .menu {
