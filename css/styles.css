@@ -55,7 +55,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-blue);
+  
   background-image: url("../img/Nebula.png");
   filter:opacity(0.5);
 }
