@@ -8,16 +8,18 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 20px;
 }
 
 :root {
   --background-blue: #2196F3;
   --nav-color: rgb(255, 255, 255);
+  --nav-text: #344055;
   --border-color: #072AC8;
   --projeto-color: #73FBD3;
   --contato-color: #5C7AFF;
   --flourescent-blue: #44E5E7;
-  --vivid-sky-blue: #59D2FE;
+  --celtic-blue: rgba(38, 110, 211, 0.726);
   --font-color: #222222;
   --title-color: #343434;
 }
@@ -55,8 +57,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  background-image: url("../img/Nebula.png");
+  background-color: var(--background-blue);
   
 }
 
@@ -68,6 +69,7 @@ header {
   top: 0;
   border: 1px solid lightslategray;
   box-shadow: 0 1px 0 rgba(0, 57, 214, 0.4);
+  z-index: 1;
 }
 
 .menu ul {
@@ -82,9 +84,17 @@ header {
 }
 
 .menu a {
-  color: var(--third-blue);
+  color: var(--nav-text);
   display: block;
   padding: 10px 20px;
+  transition: background-color 1s, color 1s;
+}
+
+.menu a:active,
+.menu a:hover {
+  background-color: var(--celtic-blue);
+  color: var(--nav-color);
+  
 }
 
 a{
@@ -104,6 +114,24 @@ header img {
   border: 5px solid var(--border-color);
 }
 
+.titulo {
+  transform: scale(0.2) translateY(50vh);
+  opacity: .0;
+
+  animation: linear 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+  0% /* pode ser "to" ou "from"*/ {
+    /* Já foram declaradas no transform de .titulo*/
+  }
+  100% /* pode ser "from" ou "to" */{
+      transform: scale(1) translateY(0);
+      opacity: 1;
+  }
+  
+}
+
 .site-title, 
 .site-subtitle {
   text-align: center;
@@ -121,9 +149,13 @@ header img {
   line-height: 1.8em;
 }
 
+section {
+  min-height: 100vh;
+}
+
 section h2 {
     text-align: center;
-    padding: 2em; 
+    padding: 1.5em; 
       
 }
 
@@ -136,23 +168,18 @@ section h2 {
   display: grid;
   gap: 2em; 
   justify-content: center;
-  
+  padding-bottom: 5em;
 }
 
-@media (min-width: 550px) {
-  .projetos .grid {
-    grid-template-columns: 240px 240px;
-  }
-}
-
-@media (min-width: 850px) {
-  .projetos .grid {
-    grid-template-columns: repeat(3, 240px);
-    }
-}
+/* Media query estavam aqui */
 
 .projetos figure {
   text-align: center;
+  transition: transform 500ms;
+}
+
+figure:hover {
+  transform: scale(1.2);
 }
 
 .img-projeto {
@@ -165,5 +192,43 @@ section h2 {
 
 .contato {
   background-color: var(--contato-color);
-  height: 100vh;
+  height: 50vh;
+}
+
+.contato a {
+  font-size: 5em;
+  transition: text-shadow 1s;
+}
+
+.contato a:active,
+.contato a:hover {
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.61);
+}
+
+.contato .icons {
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+}
+
+@media (min-width: 550px) {
+  .projetos .grid,
+  .contato .icons {
+    grid-template-columns: 240px 240px;
+  }
+}
+
+@media (min-width: 850px) {
+  .projetos .grid {
+    grid-template-columns: repeat(3, 240px);
+  }
+}
+
+@media (min-width: 890px) {
+  .contato .icons {
+    grid-template-columns: repeat(4, 240px);
+    height: calc(50vh - 121px);
+  }
 }
