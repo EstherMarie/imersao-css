@@ -29,6 +29,7 @@ body {
     height: 100vh;
     color: var(--font-color);
     font-size: 18px;
+    overflow-x: hidden;
 }
 
 @media (min-width: 200px) {
@@ -301,6 +302,5 @@ a:hover {
 @media (min-width: 880px) {
   .contato .icons {
     grid-template-columns: repeat(4, 240px);
-  height: calc(50vh - 121px);
   }
 }
