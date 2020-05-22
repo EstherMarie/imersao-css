@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -25,7 +24,8 @@ html {
 }
 
 body {
-    font-family: Arial;
+    background-size: auto 100vh; 
+    font-family: 'Poppins', sans-serif;
     height: 100vh;
     color: var(--font-color);
     font-size: 18px;
@@ -54,7 +54,6 @@ body {
 header {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: var(--background-blue);
@@ -65,22 +64,19 @@ header {
   background-color: var(--nav-color);
   position: fixed;
   width: 100vw;
-  
   top: 0;
+  z-index: 1;
   border: 1px solid lightslategray;
   box-shadow: 0 1px 0 rgba(0, 57, 214, 0.4);
-  z-index: 1;
 }
 
 .menu ul {
   display: flex;
   justify-content: space-around;
-  align-self: center;
-  
 }
+
 .menu li {
   list-style: none;
-  
 }
 
 .menu a {
@@ -106,18 +102,9 @@ a:hover {
   text-decoration: underline;
 }
 
-header img {  
-  height: 30vh;
-  width: 30vh;
-  margin-bottom: 20px;
-  border-radius: 50%;
-  border: 5px solid var(--border-color);
-}
-
 .titulo {
   transform: scale(0.2) translateY(50vh);
-  opacity: .0;
-
+  opacity: 0;
   animation: linear 2s animacaoTitulo forwards;
 }
 
@@ -141,7 +128,7 @@ header img {
 
 .site-title {
   font-size: 4em;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 .site-subtitle {
@@ -149,54 +136,146 @@ header img {
   line-height: 1.8em;
 }
 
-section {
+.sobre,
+.contato,
+.projetos {
+  padding: 2em;
   min-height: 100vh;
 }
 
-section h2 {
-    text-align: center;
-    padding: 1.5em; 
-      
+@media (min-width: 1200px) {
+  .container,
+  section h2 {
+    max-width: 1200px;
+    
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
+
+.sobre h2,
+.contato h2,
+.projetos h2 {
+  margin-bottom: 1.5em;
+}
+
+.sobre p {
+  text-indent: 2em;
+  margin-bottom: 1.4em;
+  text-align: justify;
+}
+
+.sobre a {
+  text-decoration: underline;
+}
+
+.sobre .avatar {
+  margin-left: 2em;
+  text-align: center;  
+}
+
+@media (min-width: 600px){
+  .sobre .avatar {
+    float: right;
+  }
+}
+
+.sobre img {
+  border-radius: 50%;
+/*  clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+  border: 5px solid var(--border-color); */
+  
+} 
 
 .projetos {
   background-color: var(--projeto-color);
-  
 }
 
 .projetos .grid {
   display: grid;
   gap: 2em; 
-  justify-content: center;
-  padding-bottom: 5em;
 }
 
-/* Media query estavam aqui */
+@media (min-width: 550px) {
+  .projetos .grid {
+    grid-template-columns: 240px 240px;
+  }
+}
+
+@media (min-width: 850px) {
+  .projetos .grid {
+    grid-template-columns: repeat(3, 260px);
+    align-content: center;
+    justify-content: center;
+    min-height: calc(100vh - 8em - 48px);
+  }
+}
+
+.flip-card {
+  height: 180px;
+  perspective: 1000px;
+}
+
+.flip-card:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 3s;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card-front, 
+.card-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+}
+
+.card-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, .7);
+  height: 180px;
+  width: 100%;
+  transform: rotateY(180deg);
+}
 
 .projetos figure {
   text-align: center;
-  transition: transform 500ms;
-}
-
-figure:hover {
-  transform: scale(1.2);
 }
 
 .img-projeto {
-  width: 240px;
   height: 180px;
+  width: 100%;
   object-fit: fill;
   object-position: center;
   border-radius: 5px;
+  transition: transform 500ms;
 }
+
+/*
+.img-projeto:hover {
+  transform: scale(1.2);
+} */
 
 .contato {
   background-color: var(--contato-color);
-  height: 50vh;
+  height: 100vh;
 }
 
 .contato a {
-  font-size: 5em;
+  font-size: 4em;
   transition: text-shadow 1s;
 }
 
@@ -214,21 +293,14 @@ figure:hover {
 }
 
 @media (min-width: 550px) {
-  .projetos .grid,
   .contato .icons {
     grid-template-columns: 240px 240px;
   }
 }
 
-@media (min-width: 850px) {
-  .projetos .grid {
-    grid-template-columns: repeat(3, 240px);
-  }
-}
-
-@media (min-width: 890px) {
+@media (min-width: 880px) {
   .contato .icons {
     grid-template-columns: repeat(4, 240px);
-    height: calc(50vh - 121px);
+  height: calc(50vh - 121px);
   }
 }
