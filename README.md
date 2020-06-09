@@ -1,4 +1,4 @@
 # imersao-css
 Introdução aos conceitos de CSS
 
-https://EstherMarie.github.io/imersao-css/
+https://esthermarie.github.io/imersao-css/
